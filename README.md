@@ -1,6 +1,25 @@
 # git-nits
 Some bits and bops I use to help me suck less at git.  These commands assume the `origin` remote for your repo is your main github repository. Also, they assume you're active branch is a feature branch. Do not run them on the `master` branch directly.  You need to have `$EDITOR` set.  These commands use `set -e` so if anything fails they wont continue.
 
+The basic flow is like this...
+
+```bash
+# start a feature
+git checkout -b my-feature-branch
+# do some work
+git commit -am "WIP"
+# do some more work
+git commit -am "More WIP"
+# open a PR on github with the current branch
+git pr
+# incorporate feedback
+git commit -am "Incorporate feedback"
+git push
+# PR is approved
+git mainline
+# make sure my master looks good
+git push origin master
+```
 
 ### git squash
 
