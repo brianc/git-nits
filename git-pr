@@ -4,4 +4,4 @@ set -e
 
 branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
 git push origin $branch --set-upstream
-gh pull-request
+hub pull-request
