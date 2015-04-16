@@ -17,9 +17,10 @@ Opens a pull request from your feature branch on github (uses hub pr)
 - Fetches origin/master
 - Rebases origin/master into your feature branch
 - Squashes your feature branch into a single commit
+- force pushes your feature branch back to origin (github)
 - Checks out master
 - Rebases master on to origin/master
 - Does a fast forward only merge of your single commit feature branch onto master
 - Does a log to demonstrate which commits you have on master that aren't on origin/master (should just be the single commit that was just merged)
 
-Follow it up with a `git push` when everything looks groovy
+Follow it up with a `git push` when everything looks groovy. Because the squashed feature was pushed to github once you push to master that commit landing will close your pull request for you.
