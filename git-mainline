@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+
+git squash
+git rebase origin/master
+git push origin $branch --force
+git checkout master
+git pull
+git merge $branch
+git log master ^origin/master
