@@ -1,5 +1,5 @@
 # git-nits
-Some bits and bops I use to help me suck less at git.  These commands assume the `origin` remote for your repo is your main github repository. Also, they assume you're active branch is a feature branch. Do not run them on the `master` branch directly.
+Some bits and bops I use to help me suck less at git.  These commands assume the `origin` remote for your repo is your main github repository. Also, they assume you're active branch is a feature branch. Do not run them on the `master` branch directly.  You need to have `$EDITOR` set.  These commands use `set -e` so if anything fails they wont continue.
 
 
 ### git squash
