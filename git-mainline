@@ -1,13 +1,27 @@
 #!/bin/bash
 
-set -e
+. gitvars.sh
 
-branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+feature_branch=$(get_active_branch)
 
+# squash all commits on this branch into a single one
 git squash
+
+# rebase this branch on to origin/master
 git rebase origin/master
-git push origin $branch --force
+
+# push the new rebased, squashed commit to github
+# this allows the pull request to auto-close
+git push origin $feature_branch --force
+
+# checkout our local master
 git checkout master
+
+# make sure our local master is up to date with origin
 git pull
-git merge $branch
+
+# do a fast-forward only merge of our feature branch
+git merge $feature_branch --ff-only
+
+# print a log of the differences between our master branch and origin master
 git log master ^origin/master

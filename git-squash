@@ -1,6 +1,13 @@
 #!/bin/bash
 
-set -e
+. gitvars.sh
 
 git fetch
-git rebase -i HEAD~`git log origin/master.. --pretty=oneline | wc -l | sed -e 's/^[ \t]*//'`
+changes=$(get_change_count)
+
+if [ "$changes" -le "1" ]; then
+  echo "No squash needed. $changes commit(s) since origin/master."
+  exit 0;
+fi
+
+git rebase -i HEAD~$(get_change_count)

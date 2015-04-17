@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. gitvars.sh
+
+echo "$(get_active_branch) is $(get_change_count) commit(s) ahead of origin/master"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-set -e
+. gitvars.sh
 
-branch=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
+branch=$(get_active_branch)
 git push origin $branch --set-upstream
 hub pull-request
