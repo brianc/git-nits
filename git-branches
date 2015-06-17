@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# list branches by last updated to most recently updated
+
+git for-each-ref --sort=-committerdate refs/heads/ | sed '1!G;h;$!d'
