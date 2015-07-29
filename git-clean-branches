@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# delete all merged branches from a repo
+# because I google for this once a month
+
+git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
