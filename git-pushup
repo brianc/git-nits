@@ -1,0 +1,6 @@
+#!/bin/bash
+
+. gitvars.sh
+
+branch=$(get_active_branch)
+git push origin $branch --set-upstream
